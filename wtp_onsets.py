@@ -57,9 +57,7 @@ for file in glob.glob('sb_00*/wtp/*'):
         os.chdir(os.path.join(basepath,dir,'wtp'))
         newpath=os.path.join(basepath,dir,'wtp')
         f=glob.glob('Ons*.txt')
-        print(f)
-            #make all the initial lists#
-        
+        print(f)    
         handles=[]
         for l in f:
             handles.append(open(l))
@@ -77,35 +75,35 @@ for file in glob.glob('sb_00*/wtp/*'):
                 onsets2=numpy.sort(onsets)
                 conds.append(l_s[3:6])#pulling out conditions and bids
                 #task.append(int(l_s[5]))#pulling out bids
-                base_filename="run0"+str(logfile_handle+1)
-                print(base_filename)
-                print conds    
-                for line in conds:
-                    if line[1] in data_dic['low_sug_high_fat']:
-                        HFLS.append(line)#1 if it is HFHS
-                    elif line[1] in data_dic['high_sug_high_fat']:
-                        HFHS.append(line)
-                    elif line[1] in data_dic['low_sug_low_fat']:
-                        LFLS.append(line)
-                    elif line[1] in data_dic['high_sug_low_fat']:
-                        LFHS.append(line)        
-                HFLS_onsets=[]
-                HFLS_bid=[]
-                for line in HFLS:
-                    HFLS_onsets.append(float(line[0]))
-                    HFLS_onsets2=numpy.sort(HFLS_onsets)
-                    HFLS_bid.append(int(line[2]))
-                miss_HFLS=numpy.zeros(len(HFLS_bid))
-                miss_HFLS[numpy.array(HFLS_bid)==999]=1
+            base_filename="run0"+str(logfile_handle+1)
+            print(base_filename)
+            print conds    
+            for line in conds:
+                if line[1] in data_dic['low_sug_high_fat']:
+                    HFLS.append(line)#1 if it is HFHS
+                elif line[1] in data_dic['high_sug_high_fat']:
+                    HFHS.append(line)
+                elif line[1] in data_dic['low_sug_low_fat']:
+                    LFLS.append(line)
+                elif line[1] in data_dic['high_sug_low_fat']:
+                    LFHS.append(line)        
+            HFLS_onsets=[]
+            HFLS_bid=[]
+            for line in HFLS:
+                HFLS_onsets.append(float(line[0]))
+                HFLS_onsets2=numpy.sort(HFLS_onsets)
+                HFLS_bid.append(int(line[2]))
+            miss_HFLS=numpy.zeros(len(HFLS_bid))
+            miss_HFLS[numpy.array(HFLS_bid)==999]=1
 
-                HFHS_onsets=[]
-                HFHS_bid=[]        
-                for line in HFHS:
-                    HFHS_onsets.append(float(line[0]))
-                    HFHS_onsets2=numpy.sort(HFHS_onsets)
-                    HFHS_bid.append(int(line[2]))
-                miss_HFHS=numpy.zeros(len(HFHS_bid))
-                miss_HFHS[numpy.array(HFHS_bid)==999]=1
+            HFHS_onsets=[]
+            HFHS_bid=[]        
+            for line in HFHS:
+                HFHS_onsets.append(float(line[0]))
+                HFHS_onsets2=numpy.sort(HFHS_onsets)
+                HFHS_bid.append(int(line[2]))
+            miss_HFHS=numpy.zeros(len(HFHS_bid))
+            miss_HFHS[numpy.array(HFHS_bid)==999]=1
 
             LFLS_onsets=[]
             LFLS_bid=[]        
@@ -124,8 +122,6 @@ for file in glob.glob('sb_00*/wtp/*'):
                 LFHS_bid.append(int(line[2]))
             miss_LFHS=numpy.zeros(len(LFHS_bid))
             miss_LFHS[numpy.array(LFHS_bid)==999]=1
-
-
                             
             f_HFLSoutcome=open('highfat_lowsug_'+base_filename+'.txt', 'w')
             f_HFHSoutcome=open('highfat_highsug_'+base_filename+'.txt', 'w')
@@ -138,7 +134,6 @@ for file in glob.glob('sb_00*/wtp/*'):
             f_LFLSmiss=open('lowfat_lowsug_miss_'+base_filename+'.txt', 'w')
         
             f_task=open('task_'+base_filename+'.txt', 'w')
-
 
             for t in range(len(HFLS_onsets2)):
                 f_HFLSoutcome.write('%f\t2\t%d\n' %(HFLS_onsets2[t], HFLS_bid[t]))
