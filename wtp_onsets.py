@@ -51,45 +51,45 @@ basepath='/Users/nibl/Google Drive/BDM/'
 os.chdir(basepath)
 print basepath
 for file in glob.glob('sb_00*/wtp/*'):
-    print file
-    for dir in glob.glob('sb_00*/'):
-        print dir
-        os.chdir(os.path.join(basepath,dir,'wtp'))
-        newpath=os.path.join(basepath,dir,'wtp')
-        f=glob.glob('Ons*.txt')
-        print(f)
+print file
+for dir in glob.glob('sb_00*/'):
+print dir
+os.chdir(os.path.join(basepath,dir,'wtp'))
+newpath=os.path.join(basepath,dir,'wtp')
+f=glob.glob('Ons*.txt')
+print(f)
             #make all the initial lists#
-        onsets=[]
-        conds=[]
+onsets=[]
+conds=[]
         #task=[]
         #rt=[]
-        HFHS=[]#high fat high sugar
-        LFHS=[]#low fat high sugar
-        LFLS=[]#low fat low sugar
-        HFLS=[]#high fat low sugar
-        miss=[]
-        handles=[]
+HFHS=[]#high fat high sugar
+LFHS=[]#low fat high sugar
+LFLS=[]#low fat low sugar
+HFLS=[]#high fat low sugar
+miss=[]
+handles=[]
         #open .txt files#
-        for l in f:
-            handles.append(open(l))
-        for logfile_handle in range(0,len(handles)):
-            for x in handles[logfile_handle].readlines()[1:]:
-                l_s=x.strip().split()
-                onsets.append(float(l_s[3]))#pulling onsets
-                onsets2=numpy.sort(onsets)
-                conds.append(l_s[3:6])#pulling out conditions and bids
+for l in f:
+handles.append(open(l))
+for logfile_handle in range(0,len(handles)):
+for x in handles[logfile_handle].readlines()[1:]:
+l_s=x.strip().split()
+onsets.append(float(l_s[3]))#pulling onsets
+onsets2=numpy.sort(onsets)
+conds.append(l_s[3:6])#pulling out conditions and bids
                 #task.append(int(l_s[5]))#pulling out bids
                 #rt.append(int(l_s[6]))#pulling out conds
-                base_filename="run0"+str(logfile_handle+1)
-                print(base_filename)
+base_filename="run0"+str(logfile_handle+1)
+print(base_filename)
         #start_time=onsets[0]
-                print conds    
+print conds    
             #fill HSHF condition
-                for line in conds:
-                    if line[1] in data_dic['low_sug_high_fat']:
-                        HFLS.append(line)#1 if it is HFHS
-                    elif line[1] in data_dic['high_sug_high_fat']:
-                        HFHS.append(line)
+for line in conds:
+if line[1] in data_dic['low_sug_high_fat']:
+HFLS.append(line)#1 if it is HFHS
+elif line[1] in data_dic['high_sug_high_fat']:
+HFHS.append(line)
                     elif line[1] in data_dic['low_sug_low_fat']:
                         LFLS.append(line)
                     elif line[1] in data_dic['high_sug_low_fat']:
