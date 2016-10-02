@@ -1,0 +1,12 @@
+bigmac.bmp
+bigmac2.bmp
+chickentender.bmp
+eggsbacon.bmp
+macaronicheese.bmp
+nachos.bmp
+pizzarolls.bmp
+taquitos.bmp
+taco2.bmp
+taco.bmp
+flamincheetos.bmp
+mashedpotatoes.bmp

@@ -1,0 +1,9 @@
+sinit scanner runtrial onsettime Name Bid RT 
+test_92914 0 1 3.017122e+00 chocolatemilk.bmp 999 999 
+test_92914 0 2 8.008371e+00 grapes.bmp 999 999 
+test_92914 0 3 1.400963e+01 yogurt.bmp 999 999 
+test_92914 0 4 2.000944e+01 pizzarolls.bmp 999 999 
+test_92914 0 5 2.601181e+01 rockstar.bmp 999 999 
+test_92914 0 6 3.101323e+01 m&ms.bmp 999 999 
+test_92914 0 7 3.601350e+01 nachos.bmp 999 999 
+test_92914 0 8 4.101411e+01 snickers2.bmp 999 999 

@@ -1,0 +1,10 @@
+chocolatemilk.bmp
+chocolateshake.bmp
+cookies.bmp
+cupcake.bmp
+donut.bmp
+icecream_chocolate.bmp
+m&ms.bmp
+pastry.bmp
+reeses.bmp
+snickers2.bmp
